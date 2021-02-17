@@ -26,6 +26,8 @@ public class FindElement
 
 		if (element == arr[currentElementIndex])
 			return true;
+		if (arr.length == 1)
+			return false;
 		
 		if (element < arr[currentElementIndex])
 		{

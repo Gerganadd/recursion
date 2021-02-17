@@ -5,9 +5,9 @@ public class NOD
 
 	public static void main(String[] args) 
 	{
-		System.out.println(nod(12, 40));
+		System.out.println("nod : " + nod(12, 40));
 		int[] arr = {12 , 40, 16, 32};
-		System.out.println(nodOfElementsInArray(arr, 3));
+		System.out.println("nod of arr : " + nodOfElementsInArray(arr, 0));
 	}
 	
 	public static int nod(int firstN, int secondN) 
@@ -24,11 +24,17 @@ public class NOD
 	//to do!!
 	public static int nodOfElementsInArray(int[] arr, int lastIndex)
 	{
-		if (lastIndex == 1)
-			return nod(arr[0], arr[1]);
+		if (lastIndex == arr.length - 2)
+		{
+			int first = arr[arr.length - 2];
+			int second = arr[arr.length - 1];
+			int result = nod(first, second);
+			return result;
+		}
 		
-		return nod(arr[lastIndex], arr[lastIndex - 1]);
-		//if ()
+		int second = nodOfElementsInArray(arr, lastIndex + 1);
+		int result = nod(arr[lastIndex], second);
+		return result;
 	}
 
 }
